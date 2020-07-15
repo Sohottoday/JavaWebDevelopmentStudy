@@ -1,0 +1,13 @@
+package variable;
+
+public class ExplicitConversion {
+
+	public static void main(String[] args) {
+
+		int i = 1000;
+		byte bNum = (byte)i;		//이러한 방식으로 더 정밀하지 못한 형식으로 변환할 경우 자료 소실의 위험이 존재한다.
+		
+		
+	}
+
+}
