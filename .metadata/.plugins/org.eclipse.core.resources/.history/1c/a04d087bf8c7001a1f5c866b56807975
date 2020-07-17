@@ -1,0 +1,15 @@
+package classchapter;
+
+public class Shopping {
+	int orderNum;
+	String orderID;
+	Date orderDate;
+	
+	
+	
+	
+	public static void main(String[] args) {
+
+	}
+
+}
