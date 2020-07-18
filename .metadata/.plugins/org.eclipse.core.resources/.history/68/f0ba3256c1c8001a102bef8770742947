@@ -1,0 +1,13 @@
+package hiding;
+
+public class MyDate {
+
+	private int day;
+	private int month;
+	private int year;
+	
+	public void showDate() {
+		System.out.println(year + "년 " + month + "월 " + day + "일 입니다.");
+	}
+	
+}
