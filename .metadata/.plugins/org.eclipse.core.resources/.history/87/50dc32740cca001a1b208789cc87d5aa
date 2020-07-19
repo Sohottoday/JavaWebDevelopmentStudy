@@ -1,0 +1,13 @@
+package cooperation;
+
+public class MyDateTest {
+
+	public static void main(String[] args) {
+
+		MyDate md1 = new MyDate(28, 2, 2020);
+		System.out.println(md1.isValid());
+		
+		
+	}
+
+}

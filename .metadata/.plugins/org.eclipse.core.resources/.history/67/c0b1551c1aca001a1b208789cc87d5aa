@@ -1,0 +1,9 @@
+package classchapter;
+
+public class Card {
+
+	public static int cardStart = 10000;
+	private int cardNumber;
+	
+	public void
+}
