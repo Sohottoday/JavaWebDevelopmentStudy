@@ -1,0 +1,12 @@
+package array;
+
+public class ArrayTest {
+
+	public static void main(String[] args) {
+
+		int[] arr = new int[] {1, 2, 3};
+		//int[] arr = {1, 2, 3};		단, 선언과 동시에 값을 부여하는 경우에만 사용한다.
+		
+	}
+
+}
