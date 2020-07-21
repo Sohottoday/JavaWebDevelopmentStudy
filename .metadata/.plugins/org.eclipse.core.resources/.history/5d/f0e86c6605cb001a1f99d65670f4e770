@@ -1,0 +1,11 @@
+package array;
+
+import java.util.ArrayList;
+
+public class StudentLab {
+	
+	String studentName;
+	ArrayList<BookLab> bookList;
+	
+	
+}

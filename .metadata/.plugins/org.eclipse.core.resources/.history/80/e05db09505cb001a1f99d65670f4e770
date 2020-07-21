@@ -1,0 +1,15 @@
+package array;
+
+import java.util.ArrayList;
+
+public class StudentLab {
+	
+	String studentName;
+	ArrayList<BookLab> bookList;
+	
+	public StudentLab(String studentName) {
+		this.studentName = studentName;
+		
+		bookList = new ArrayList<BookLab>();
+	}
+}

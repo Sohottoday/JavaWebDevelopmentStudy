@@ -1,0 +1,9 @@
+package array;
+
+public class Student {
+
+	int studentID;
+	String studuentName;
+	ArrayList<Subject> subjectList;
+	
+}

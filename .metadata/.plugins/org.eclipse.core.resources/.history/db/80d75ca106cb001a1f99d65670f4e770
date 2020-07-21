@@ -1,6 +1,6 @@
-package variable;
+package array;
 
-public class VariableTest {
+public class StudentLabTest {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
