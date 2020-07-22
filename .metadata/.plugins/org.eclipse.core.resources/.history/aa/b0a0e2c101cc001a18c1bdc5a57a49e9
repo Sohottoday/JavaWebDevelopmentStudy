@@ -1,0 +1,12 @@
+package abstractex;
+
+public class Desktop extends Computer{		// 하나의 추상메서드라도 포함을 하면 abstract가 되야 한다.
+
+	public void display() {
+		System.out.println("Desktop displya");
+	}
+	
+	public void typing() {
+		System.out.println("Desktop typing");
+	}
+}

@@ -406,3 +406,131 @@ for(변수 : 배열){
   - 다양한 여러 클래스를 하나의 자료형(상위 클래스)으로 선언하거나 형변환 하여 각 클래스가 동일한 메서드를 오버라이딩 한 경우, 하나의 코드가 다양한 구현을 실행할 수 있음
   - 유사한 클래스가 추가되는 경우 유지보수에 용이하고 각 자료형 마다 다른 메서드를 호출하지 않으므로 코드에서 많은 if문이 사라짐
 
+
+
+#### 다운캐스팅
+
+- 하위 클래스로 형 변환
+
+- 묵시적으로 상위 클래스 형변환된 인스턴스가 원래 자료형(하위 클래스)으로 변환되어야 할 때 다운캐스팅이라 함
+
+- 하위 클래스로의 형 변환은 명시적으로 되어야 함
+
+- Customer vc = new VIPCustomer();	   => 묵시적
+
+  VIPCustomer vCustomer = (VIPCustomer)vc;        => 명시적
+
+
+
+### 추상 클래스
+
+- 추상 메서드를 포함한 클래스
+- 추상 메서드
+  - 구현 코드가 없이 선언부만 있는 메서드
+- abstract 예약어 사용
+- 추상 클래스는 new(인스턴스화) 할 수 없음
+- cf) concrete class
+- 추상 클래스 구현
+
+``` java
+public abstrac class Computer{
+    public abstract void display();
+    public abstract void typing();
+    ...
+}
+```
+
+- 메서드와 클래스에 abstract 키워드 사용
+- 추상 메서드가 포함된 클래스는 추상 클래스로 선언
+- 모든 메서드가 구현되었다고 해도 클래스에 abstract 키워드를 사용하면 추상 클래스
+- 보통 기울기체로 표현한다.
+
+
+
+- 추상 클래스 사용하기
+
+  - 추상 클래스는 주로 상속의 상위클래스로 사용됨
+
+  - 추상 메서드 : 하위 클래스가 구현해야 하는 메서드
+
+  - 구현된 메서드 : 하위 클래스가 공통으로 사용하는 기능의 메서드
+
+    하위 클래스에 따라 재정의 할 수 있음
+
+
+
+##### 템플릿 메서드
+
+- 템플릿 : 틀이나 견본을 의미
+
+- 템플릿 메서드 : 추상 메서드나 구현된 메서드를 활용하여 전체의 흐름(시나리오)를 정의 해 놓은 메서드
+
+  final로 선언하여 재정의 할 수 없게 함
+
+- 템플릿 메서드 패턴 
+
+  - 디자인 패턴의 일종
+  - 프레임 워크에서 많이 사용되는 설계 패턴
+  - 추상 클래스로 선언된 상의 클래스에서 추상 메서드를 이용하여 전체 구현의 흐름을 정의하고 구체적인 각 메서드 구현은 하위 클래스에 위임
+  - 하위 클래스가 다른 구현을 했다고 해서 템플릿 메서드에 정의된 시나리오 대로 수행됨
+
+``` java
+public abstract class Car {
+    public abstract void drive();
+    public abstract void stop();
+    
+    public void startCar() {
+        System.out.println("시동을 켠다");
+    }
+    
+    public void turnOff(){
+        System.out.println("시동을 끈다");
+    }
+    
+    final public void run() {		// 이 부분이 템플릿 메서드
+        startCar();
+        drive();
+        stop();
+        turnOff();
+    }
+}
+```
+
+
+
+##### final 예약어
+
+- final 변수는 값이 변경될 수 없는 상수
+
+  `public static final double PI = 3.14;`
+
+  오직 한 번만 값을 할당할 수 있음
+
+- final 메서드는 하위 클래스에서 재정의(overriding)할 수 없음
+
+- final 클래스는 더 이상 상속되지 않음
+
+  ex) java의 String 클래스
+
+- public static final 상수 값 정의하여 사용하기
+  - 프로젝트 구현 시 여러 파일에서 공유해야 하는 상수 값은 하나의 파일에 선언하여 사용하면 편리
+
+``` java
+public class Define{
+    public static final int MIN = 1;
+    public static final int MAX = 99999;
+	public static final int ENG = 1001;
+    public static final int MATH = 2001;
+}
+
+public class UsingDefine{
+    public static void main(String[] args){
+        System.out.println("최소값은 " + Define.MIN + "입니다.");
+        System.out.println("수학 과목 코드값은 " + Define.MATH + "입니다.");
+        System.out.println("영어 과목 코드값은 " + Define.ENG + "입니다.");
+    }
+}
+```
+
+- 위와 같이 static으로 선언하여 메모리 소모를 최소화 하여 쉽게 불러올 수 있다.
+
