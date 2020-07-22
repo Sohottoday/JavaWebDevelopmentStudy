@@ -1,0 +1,17 @@
+package inheritance;
+
+public class VIPCustomer {
+
+	private int customerID;
+	private String customerName;
+	private String customerGrade;
+	int bonusPoint;
+	double bonusRatio;
+	
+	double salesRatio;
+	private int agentID;
+	
+	public VIPCustomer() {
+		
+	}
+}

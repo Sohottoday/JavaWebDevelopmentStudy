@@ -1,0 +1,13 @@
+package inheritance;
+
+public class GoldCustomer {
+
+	protected int customerID;
+	protected String customerName;
+	protected String customerGrade;
+	int bonusPoint;
+	double bonusRatio;
+	
+	double salesRatio;
+	
+}

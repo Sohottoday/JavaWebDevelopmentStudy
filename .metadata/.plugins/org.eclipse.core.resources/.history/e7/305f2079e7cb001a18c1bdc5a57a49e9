@@ -1,0 +1,15 @@
+package inheritance;
+
+public class VIPCustomer extends Customer{
+
+	double salesRatio;
+	private int agentID;
+	
+	public VIPCustomer() {
+		
+		super();		// this가 자기 자신을 잠조한다고 하면 super는 상위 클래스를 참조
+		customerGrade = "VIP";		// private일 경우 접근할 수 없지만 protected로 주면 같은 패키지 내에서는 접근이 가능하다.
+		bonusRatio = 0.05;
+		salesRatio = 0.1;
+	}
+}
