@@ -1,0 +1,11 @@
+package interfaceex;
+
+public class BookShelfTest {
+
+	public static void main(String[] args) {
+
+		Queue bookQueue = new BookShelf();
+		bookQueue.enQueue("해리포터1");
+	}
+
+}

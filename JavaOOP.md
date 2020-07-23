@@ -513,6 +513,7 @@ public abstract class Car {
   ex) java의 String 클래스
 
 - public static final 상수 값 정의하여 사용하기
+  
   - 프로젝트 구현 시 여러 파일에서 공유해야 하는 상수 값은 하나의 파일에 선언하여 사용하면 편리
 
 ``` java
@@ -533,4 +534,73 @@ public class UsingDefine{
 ```
 
 - 위와 같이 static으로 선언하여 메모리 소모를 최소화 하여 쉽게 불러올 수 있다.
+
+
+
+##### 인터페이스
+
+- 어떤 object에 대한 명세(어떤것을 제공할 것인가? 어떤 역할을 하는 것이다. 하는 설명서와 같은 역할)
+
+- 인터페이스의 요소
+  - 추상 메서드 : 모든 메서드는 추상 메서드
+  - 상수 : 선언된 모든 변수는 상수로 처리 됨
+  - 디폴트 메서드 : 기본 구현을 가지는 메서드, 구현하는 클래스에서 재정의 할 수 있음(java 8)
+  - 정적 메서드 : 인스턴스 생성과 상관없이 인터페이스 타입으로 호출하는 메서드(java 8)
+  - private 메서드 : 인터페이스 내에서 사용하기 위해 구현한 메서드, 구현하는 클래스에서 재정의할 수 없음(java 9)
+- 인터페이스 선언과 구현
+
+``` java
+public interface Calc {
+    double PI = 3.14;
+    int ERROR = -999999999;			// 인터페이스에서 선언한 변수는 컴파일 과정에서 상수(final)로 변환됨
+
+	int add(int num1, int num2);
+    int substract(int num1, int num2);
+    int times(int num1, int num2);
+    int divide(int num1, int num2);		//인터페이스에서 선언한 메서드는 컴파일 과정에서 추상 메서드로 변환됨
+}
+```
+
+- 인터페이스를 구현한 클래스는 인터페이스 타입으로 변수를 선언하여 인스턴스를 생성할 수 있음
+- 인터페이스는 구현 코드가 없기 때문에 타입 상속이라고도 함
+
+
+
+- 인터페이스의 역할
+  - 인터페이스는 클리이언트 프로그렘에 어떤 메서드를 제공하는지 알려주는 명세(specification) 또는 약속
+  - 한 객체가 어떤 인터페이스의 타입이라 함은 그 인터페이스의 메서드를 구현했다는 의미
+  - 클라이언트 프로그램은 실제 구현내용을 몰라도 인터페이스의 정의만 알면 그 객체를 사용할 수 있음
+  - 인터페이스를 구현해 놓은 다양한 객체를 사용함 - 다형성
+    - JDBC를 구현한 오라클, MSSQL 라이브러리 등
+- 인터페이스와 strategy pattern
+  - 인터페이스를 활용하면 다양한 정책이나 알고리즘을 프로그램의 큰 수정 없이 적용, 확장할 수 있음
+- 여러개의 인터페이스 구현
+  - 인터페이스는 구현 코드가 없으므로 하나의 클래스가 여러 인터페이스를 구현할 수 있음
+  - 디폴트 메서드의 이름이 중복 ㅗ디는 경우에는 재정의 함
+- 인터페이스 상속
+  - 인터페이스 간에도 상속이 가능
+  - 구현이 없으므로 extends 뒤에 여러 인터페이스를 상속받을 수 있음
+  - 구현 내용이 없으므로 타입 상속(type inheritance)라고 함
+- 인터페이스 구현과 클래스 상속 함께 사용이 가능하다.
+
+``` java
+public class BookShelf extends Shelf implements Queue {
+    @Override
+    public void enQueue(String title) {
+        shelf.add(title);		//배열에 요소 추가
+    }
+    
+    @Override
+    public String deQueue() {
+        return shelf.remove(0);		//맨 처음 요소를 배열에서 삭제하고 반환
+    }
+    
+    @Override
+    public int getSize() {
+        return getCount();		//배열 요소 개수 반환
+    }
+}
+```
+
+
 
