@@ -1,0 +1,21 @@
+package objectex;
+
+class Book{
+	String title;
+	String author;
+	
+	public Book(String title, String author) {
+		this.title = title;
+		this.author = author;
+	}
+}
+
+
+public class ToStringTest {
+	
+	public static void main(String[] args) {
+
+		Object
+	}
+
+}

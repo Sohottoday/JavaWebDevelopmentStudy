@@ -1,0 +1,26 @@
+package objectex;
+
+class Book{
+	String title;
+	String author;
+	
+	public Book(String title, String author) {
+		this.title = title;
+		this.author = author;
+	}
+}
+
+
+public class ToStringTest {
+	
+	public static void main(String[] args) {
+
+		Book book = new Book("토지", "박경리");
+		
+		System.out.println(book);
+		
+		String str = new String("토지");		//string 은 jdk 클래스 인데 그 안에 기본적으로 toString 클래스가 선언되어 있으므로 주소값이 아닌 입력값이 출력된다.
+		System.out.println(str);
+	}
+
+}

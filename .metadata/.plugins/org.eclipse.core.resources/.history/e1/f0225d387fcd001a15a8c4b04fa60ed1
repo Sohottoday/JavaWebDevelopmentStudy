@@ -1,0 +1,22 @@
+package classex;
+
+import java.lang.reflect.Constructor;
+
+public class StringClassTest {
+
+	public static void main(String[] args) throws ClassNotFoundException {
+
+		Class c1 = String.class;
+		
+		String str = new String();
+		Class c2 = str.getClass();
+		
+		Class c3 = Class.forName("java.lang.String");
+		
+		Constructor[] cons = c3.getConstructors();
+		for(Constructor cons : cons) {
+			System.out.println(cons);
+		}
+	}
+
+}

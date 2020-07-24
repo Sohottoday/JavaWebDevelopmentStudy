@@ -1,0 +1,18 @@
+package classex;
+
+public class ClassTest {
+
+	public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+
+		Person person = new Person("¼º¿¬");
+		System.out.println(person);
+		
+		Class c1 = Class.forName("classex.Person");
+		Person person1 = (Person)c1.newInstance();
+		System.out.println(person1);
+		
+		Class[] parameterType = {String.class};
+		Constructor cons = c1.getConstructor(parameterTypes)
+	}
+
+}
