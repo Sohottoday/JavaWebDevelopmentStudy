@@ -1,0 +1,13 @@
+package classex;
+
+public class StringTest2 {
+
+	public static void main(String[] args) {
+
+		String java = new String("java");
+		String android = new String("android");
+		
+		java.concat(android);
+	}
+
+}

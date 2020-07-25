@@ -719,3 +719,30 @@ Student studentSoon = new Student(100, "이순신");
 
 
 
+##### String 클래스
+
+- String 클래스 선언하기
+
+- `String str1 = new String("abc");` 	//인스턴스로 생성됨
+
+  `String str2 = "abc";`                              // 상수풀에 있는 문자열을 가리킴
+
+- String은 immutable
+  - 한번 선언되거나 생성된 문자열을 변경할 수 없음
+  - String 클래스의 concat() 메서드 혹은 "+"를 이용하여 String을 연결하는 경우 문자열은 새로 생성 됨
+- StringBuilder 와 StringBuffer
+  - 가변적인 char[] 배열을 멤버변수라 가지고 있는 클래스
+  - 문자열을 변경하거나 연결하는 경우 사용하면 편리한 클래스
+  - StringBuffer는 멀티 쓰레드 프로그래밍에서 동기화(Synchronization)이 보장됨
+  - 단일 쓰레드 프로그래밍에서는 StringBuilder를 사용하는 것이 더 좋음
+  - toString() 메서드로 String 반환
+
+
+
+##### Wrapper 클래스
+
+- 기본 자료형에 대한 클래스
+- boolean, byte, char, short, int, long, float, double
+
+
+
