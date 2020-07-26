@@ -103,6 +103,42 @@ class Shape<T> {
 
 
 
+#### List 인터페이스
+
+- Collection 하위 인터페이스
+- 객체를 순서에 따라 저장하고 관리하는데 필요한 메서드가 선언된 인터페이스
+- 배열의 기능을 구현하기 위한 메서드가 선언됨
+- ArrayList, Vector, LinkedList
+- ArrayList와 Vector
+  - 객체 배열 클래스
+  - Vector는 자바2부터 제공된 클래스
+  - 일반적으로 ArrayList를 더 많이 사용
+  - Vector는 멀티쓰레드 프로그램에서 동기화를 지원
+  - 동기화(synchronization) : 두 개의 쓰레드가 동시에 하나의 리소스에 잡근할 때 순서를 맞추어서 데이터의 오류를 방지
+  - capacity와 size는 다른 의미 : capacity(배열의 용량), size(존재하는 요소 개수)
+- ArrayList와 LinkedList
+  - 둘 다 자료의 순차적 구조를 구현한 클래스
+  - ArrayList는 배열을 구현한 클래스로 논리적 순서와 물리적 순서가 동일
+  - LinkedList는 논리적으로 순차적인 구조지만, 물리적으로는 순차적이지 않을 수 있음
+
+
+
+#### Stack과 Queue
+
+- Stack
+  - Last In First Out(LIFO) : 맨 마지막에 추가 된 요소가 가장 먼저 꺼내지는 자료구조
+  - 이미 구현된 클래스가 제공 됨
+  - ArrayList나 LinkedList로 구현 할 수 있음
+  - 게임에서 무르기, 최근 자료 가져오기 등
+- Queue
+  - First In First Out(FIFO) : 먼저 저장된 자료가 먼저 꺼내지는 자료구조
+  - 선착순, 대기열 등을 구현할 때 가장 많이 사용되는 자료 구조
+  - ArrayList나 LinkedList로 구현 할 수 있음
+
+
+
+
+
 ### Map 인터페이스
 
 - 쌍으로 이루어진 객체를 관리하는데 필요한 여러 메서드가 선언되어 있음
