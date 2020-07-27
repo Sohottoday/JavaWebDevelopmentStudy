@@ -1,0 +1,30 @@
+package innerclass;
+
+
+class OutClass {
+
+	private int num = 10;
+	private static int sNum = 20;
+	private InClass inClass;
+	
+	public OutClass() {
+		inClass = new InClass();
+	}
+	
+	class InClass {
+		int iNum = 100;
+		static int sInNum = 200;
+		
+	}
+}
+
+
+
+public class InnerTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

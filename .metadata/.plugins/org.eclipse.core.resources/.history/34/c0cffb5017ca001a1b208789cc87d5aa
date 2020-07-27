@@ -1,6 +1,0 @@
-package classchapter;
-
-public class Card {
-
-	int cardNum
-}
