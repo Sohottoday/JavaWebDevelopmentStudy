@@ -28,4 +28,19 @@ public class Member {
 	}
 	
 	
+	@Override
+	public int hashCode() {
+		return memberID;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if(obj instanceof Member) {
+			Member member = (Member)obj;
+			return (this.memberID == member.memberID);
+		}
+		return false;
+	}
+
+	
+	
 }
