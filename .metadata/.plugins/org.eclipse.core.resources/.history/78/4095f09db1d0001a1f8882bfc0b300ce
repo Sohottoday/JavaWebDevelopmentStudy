@@ -1,0 +1,11 @@
+package stream;
+
+public class ReduceTest {
+
+	public static void main(String[] args) {
+
+		String[] greetings = {"안녕하세요", "hello", "nihao", "반갑습네다"};
+		
+	}
+
+}

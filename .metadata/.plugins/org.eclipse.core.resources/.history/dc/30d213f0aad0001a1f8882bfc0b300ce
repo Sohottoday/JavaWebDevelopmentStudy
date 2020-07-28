@@ -1,0 +1,6 @@
+package lambda;
+
+@FunctionalInterface		// 람다식을 위한 함수혀 인터페이스라 선언
+public interface MyMaxNumber {
+	int getMaxNumber(int x, int Y);
+}

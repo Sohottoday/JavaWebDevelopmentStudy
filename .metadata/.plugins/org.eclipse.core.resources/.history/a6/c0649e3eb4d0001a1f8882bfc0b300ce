@@ -1,0 +1,15 @@
+package stream;
+
+import java.util.ArrayList;
+
+public class StreamLab {
+
+	public static void main(String[] args) {
+
+		Person p1 = new Person();
+		ArrayList<Person> p2 = new ArrayList<Person>();
+		p2.add(2, "ÀÌ¼ø½Å", 20, 100));
+		
+	}
+
+}
