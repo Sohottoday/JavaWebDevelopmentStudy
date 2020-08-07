@@ -1,0 +1,20 @@
+package streamex;
+
+import java.io.IOException;
+
+public class SystemInTest {
+
+	public static void main(String[] args) {
+
+		System.out.println("입력 후 '끝' 이라고 입력하시오 : ");
+		try {
+			int i; 
+			while((i = System.in.read()) != '\n') {
+				System.out.print((char)i);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+}

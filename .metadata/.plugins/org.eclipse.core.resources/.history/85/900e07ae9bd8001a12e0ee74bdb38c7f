@@ -1,0 +1,13 @@
+package streamex;
+
+import java.io.FileWriter;
+
+public class FileWriterTest {
+
+	public static void main(String[] args) {
+
+		FileWriter fw = new FileWriter();
+		
+	}
+
+}

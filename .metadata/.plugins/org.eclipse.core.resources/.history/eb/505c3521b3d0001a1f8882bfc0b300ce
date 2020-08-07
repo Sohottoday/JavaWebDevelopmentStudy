@@ -1,9 +1,0 @@
-package stream;
-
-public class Person {
-
-	private int num;
-	private String name;
-	private int age;
-	private int money;
-}

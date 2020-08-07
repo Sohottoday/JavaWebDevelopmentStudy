@@ -1,0 +1,10 @@
+package streamex;
+
+public class FileReaderTest {
+
+	public static void main(String[] args) {
+
+		FileInputStream fis = new FileInputStream("reader.txt");
+	}
+
+}

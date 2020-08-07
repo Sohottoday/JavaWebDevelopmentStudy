@@ -1,0 +1,22 @@
+package streamex;
+
+import java.io.FileReader;
+import java.io.IOException;
+
+public class FileReaderTest2 {
+
+	public static void main(String[] args) throws IOException {
+
+
+		FileReader fis = new FileReader("reader.txt");  // 이 경우를 쓰거나
+		
+		
+		int i;
+		while((i = fis.read()) != -1 ) {
+			System.out.print((char)i);
+		}
+		fis.close();		// 바로 FileReader 를 쓰는 경우
+		
+	}
+
+}

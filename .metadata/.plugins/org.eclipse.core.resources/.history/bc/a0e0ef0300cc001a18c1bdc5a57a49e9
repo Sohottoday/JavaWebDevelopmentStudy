@@ -1,6 +1,0 @@
-package abstractex;
-
-public abstract class Desktop extends Computer{
-
-	public void display() {}
-}

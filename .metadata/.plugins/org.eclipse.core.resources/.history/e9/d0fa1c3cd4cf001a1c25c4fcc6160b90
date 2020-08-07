@@ -1,6 +1,0 @@
-package collection;
-
-public class MemberHashSet {
-
-	private HashSetTest<Member> hashSet;
-}

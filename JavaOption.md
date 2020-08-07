@@ -231,3 +231,130 @@ public class AutoCloseObj implements AutoCloseable {
   ```
 
 - throw 키워드로 예외를 발생 시킴
+
+
+
+### 자바 입출력
+
+#### 입출력 스트림
+
+- 네트워크에서 자료의 흐름이 물과 같다는 의미에서 유래
+- 다양한 입출력 당치에 독립적으로 일관성 있는 입출력 방식 제공
+- 입출력이 구현 되는 곳에서 모두 I/O 스트림을 사용 : 키보드, 파일 디스크, 메모리 등
+
+- 입출력 스트림 구분
+  - I/O 대상 기준 : 입력 스트림, 출력 스트림
+  - 자료의 종류 : 바이트 스트림, 문자 스트림
+  - 스트림의 기능 : 기반 스트림, 보조 스트림
+  - 입출력을 동시에 하는 스트림은 존재하지 않는다.
+
+- 입출력 스트림과 출력 스트림
+
+  - 입력 스트림 : 대상으로부터 자료를 읽어들이는 스트림
+  - 출력 스트림 : 대상으로 자료를 출력하는 스트림
+  - 스트림의 예
+    - 입력 스트림 : FileInputStream, FileReader, BufferedInputStream, BufferedReader 등
+    - 출력 스트림 : FileOutputStream, FileWriter, BufferedOutputStream, BufferedWriter 등
+
+- 바이트 단위 스트림과 문자 단위 스트림
+
+  - 바이트 단위 스트림 : 바이트 단위로 자료를 읽고 씀(동영상, 음악파일 등)
+  - 문자 단위 스트림 : 문자는 2바이트씩 처리 해야 함
+  - 스트림의 예
+    - 바이트 스트림 : FileInputStream, FileOutputStream, BufferedInputStream, BufferedOutputStream 등
+    - 문자 스트림 : FileReader, FileWriter, BufferedReader, BufferedWriter 등
+
+- 기반 스트림과 보조 스트림
+
+  - 기반 스트림 : 대상에 직접 자료를 읽고 쓰는 기능의 스트림
+
+  - 보조 스트림 : 직접 읽고 쓰는 기능은 없고 추가적인 기능을 제공해주는 스트림
+
+    ​						기반 스트림이나 또 다른 보조 스트림을 생성자의 매개변수로 포함
+
+  - 스트림의 예
+
+    - 기반 스트림 : FileInputStream, FileOutputStream, FileReader, FileWriter 등
+    - 보조 스트림 : InputStreamReader, OutputStreamWriter, BufferedInputStream, BufferedOutputStream 등
+
+
+
+#### 표준 입출력
+
+- System 클래스의 표준 입출력 멤버
+
+``` java
+public class System{
+    public static PrintStream out;		// 표준 출력 스트림
+    public static InputStream in;		// 표준 입력 스트림
+    public static PrintStream err;		// 표준 에러 스트림
+}
+```
+
+- System.in 사용하여 입력 받기
+  - 한 바이트씩 읽어 들임
+  - 한글과 같은 여러 바이트로 된 문자를 읽기 위해서는 InputStreamReader와 같은 보조 스트림을 사용해야 함
+
+- Scanner 클래스
+  - java.util 패키지에 있는 입력 클래스
+  - 문자뿐 아니라 정수, 실수 등 다양한 자료형을 읽을 수 있음
+  - 생성자가 다양하여 여러 소스로부터 자료를 읽을 수 있음
+    - Scanner(File source) : 파일을 매개변수로 받아 Scanner를 생성
+    - Scanner(InputStream source) : 바이트 스트림을 매개변수로 받아 Scanner를 생성
+    - Scanner(String source) : String을 매개변수로 받아 Scanner를 생성
+
+- Console 클래스
+  - System.in을 사용하지 않고 콘솔에서 표준 입출력이 가능
+  - 이클립스와 연동 X
+  - Console 클래스의 메서드
+    - `String readLine()` : 문자열 읽음
+    - `char[] readPassword()` : 사용자에게 문자열을 보여주지 않고 읽음
+    - `Reader reader()` : Reader클래스를 반환
+    - `PrintWriter writer()` : PrintWriter 클래스를 반환
+
+
+
+#### 바이트 단위 스트림
+
+- InputStream : 바이트 단위 입력 스트림 최상위 클래스
+
+  OutputStream : 바이트 단위 출력 스트림 최상위 클래스
+
+- 추상 메서드를 포함한 추상 클래스로 하위 클래스가 구현하여 사용
+
+- 주요 하위 클래스
+
+  - FileInputStream : 파일에서 바이트 단위로 자료를 읽습니다.
+  - ByteArrayInputStream : Byte 배열 메모리에서 바이트 단위로 자료를 읽습니다.
+  - FileInputStream : 기반 스트림에서 자료를 읽을 때 추가 기능을 제공하는 보조 스트림의 상위 클래스
+  - FileOutputStream : 바이트 단위로 파일에 자료를 씁니다.
+  - ByteArrayOutputStream : Byte 배열에 바이트 단위로 자료를 씁니다.
+  - FileOutputStream : 기반 스트림에서 자료를 쓸 때 추가 기능을 제공하는 보조 스트림의 상위 클래스
+
+- FileInputStream과 FileOutputStream 사용하기
+  - 파일에 한 바이트씩 자료를 읽고 쓰는데 사용(한 바이트씩이므로 문자 X)
+  - 입력 스트림은 파일이 없는 경우 예외 발생
+  - 출력 스트림은 파일이 없는 경우 파일 생성하여 출력
+
+
+
+#### 문자 단위 스트림
+
+- Reader : 문자 단위로 읽는 최상위 스트림
+- Writer : 문자 단위로 쓰는 최상위 스트림
+- 추상 메서드를 포함한 추상 클래스로 하위 클래스가 상속받아 구현
+- 하위 클래스
+  - FileReader : 파일에서 문자 단위로 읽는 스트림 클래스
+  - InputStreamReader : 바이트 단위로 읽은 자료를 문자로 변환해 주는 보조 스트림 클래스
+  - BufferedReader : 문자로 읽을 때 배열을 제공하여 한꺼번에 읽을 수 있는 기능을 제공해 주는 보조 스트림
+  - FileWriter : 파일에 문자 단위로 출력하는 스트림 클래스
+  - OutputStreamWriter : 파일에 바이트 단위로 출력한 자료를 문자로 변환해 주는 보조 스트림
+  - BufferedWriter : 문자로 쓸 때 배열을 제공하여 한꺼번에 쓸 수 있는 기능을 제공해 주는 보조 스트림
+- FileReader와 FileWriter
+  - 파일에 문자를 읽고 쓸 때 가장 많이 사용하는 클래스
+  - 문자의 인코딩 방식을 지정할 수 있음
+
+
+
+
+
