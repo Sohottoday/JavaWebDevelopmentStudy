@@ -1,0 +1,23 @@
+package thread;
+
+
+class MyThread extends Thread {
+	public void run() {
+		int i;
+		
+		for(i=0; i<=200; i++) {
+			System.out.print(i + "\t");
+			
+			sleep(100);
+		}
+	}
+}
+
+public class ThreadTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

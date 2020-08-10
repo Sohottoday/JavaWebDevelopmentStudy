@@ -1,0 +1,15 @@
+package stream.coffee;
+
+public class Mocha extends Coffee{
+
+	public Mocha(Coffee coffee) {
+		super(coffee);
+	}
+	
+	@Override
+	public void brewing() {
+		
+	}
+
+	
+}

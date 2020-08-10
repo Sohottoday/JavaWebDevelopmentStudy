@@ -1,0 +1,16 @@
+package thread;
+
+public class joinTest extends Thread{
+	
+	int start;
+	int end;
+	int total;
+	
+	
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

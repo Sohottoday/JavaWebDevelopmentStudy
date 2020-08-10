@@ -356,5 +356,156 @@ public class System{
 
 
 
+#### 보조 스트림
+
+- 실제 읽고 쓰는 스트림이 아닌 보조적인 기능을 추가하는 스트림
+- FilterInputStream과 FilterOutputStream이 보조 스트림의 상위 클래스
+
+- 생성자의 매개 변수로 또 다른 스트림을 가짐
+
+  - protectedFilterInputStream(InputStream in) : 생성자의 매개변수로 InputStream을 받습니다.
+  - public FilterOutputStream(OutputStream out) : 생성자의 매개변수로 OutputStream을 받습니다.
+
+- 데코레이터 패턴(Decorator Pattern)
+
+- 여러가지 보조 스트림
+
+  - Buffered 스트림 : 내부에 8192 바이트 배열을 가지고 있음
+
+    읽거나 쓸 때 속도가 빠름
+
+  - DataInputStream / DataOutputStream : 자료가 저장된 상태 그대로 자료형을 유지하며 읽거나 쓰는 기능을 제공하는 스트림
+
+
+
+#### 직렬화(Serialization)
+
+- 인스턴스의 상태를 그대로 저장하거나 네트워크로 전송하고 이를 다시 복원(Deserialization) 하는 방식
+- ObjectInputStream과ObjectOutputStream 사용
+- 보조 스트림
+- Serializable 인터페이스
+  - 직렬화는 인스턴스의 내용이 외부(파일, 네트워크)로 유출되는 것이므로 프로그래머가 객체의 직렬화 가능 여부를 명시함
+  - 구현 코드가 없는 mark interface
+
+``` java
+class Person implements Serializable {		// 직렬화 하겠다는 의도를 표시
+	...
+    String name;
+    String job;
+    ...
+}
+```
+
+
+
+#### 그 외 입출력 클래스
+
+- File 클래스
+  - 파일 개념을 추상화한 클래스
+  - 입출력 기능은 없고 파일의 속성, 경로, 이름 등을 알 수 있음
+- RandomAccessFile 클래스
+  - 입출력 클래스 중 유일하게 파일 입출력을 동시에 할 수 있는 클래스
+  - 파일 포인터가 있어서 읽고 쓰는 위치의 이동이 가능
+  - 다양한 자료형에 대한 메서드가 제공됨
+
+
+
+#### 데코레이터 패턴(Decorator Pattern)
+
+- 자바의 입출력 스트림은 데코레이터 패턴을 사용
+- 실제 입출력 기능을 가진 객체(컴포넌트)와 그 외 다양한 기능을 제공하는 데코레이터(보조스트림)을 사용하여 다양한 입출력 기능을 구현
+- 상속보다 유연한 확장성을 가짐
+- 지속적인 서비스의 증가와 제거가 용이함
+
+
+
+### Thread
+
+- Process
+  - 실행중인 프로그램
+  - OS로부터 메모리를 할당 받음
+- Thread
+  - 실제 프로그램이 수행되는 작업의 최소 단위
+  - 하나의 프로세스는 하나 이상의 Thread를 가지게 됨
+- 자바 Thread 클래스로부터 상속받아 구현
+
+``` java
+class Test
+{
+    t = new Thread();
+    t.start();
+}
+
+class AnyThread extends Thread
+{
+    public void run() {
+        ......
+    }
+}
+```
+
+
+
+- Runnable 인터페이스 구현
+
+``` java
+class Test
+{
+    t = new Thread(new Anything());
+    t.start();
+}
+
+class Anything implements Runnable
+{
+    public void run() {
+        ......
+    }
+}
+```
+
+
+
+- Multi-thread 프로그래밍
+  - 동시에 여러 개의 Thread가 수행되는 프로그래밍
+  - Thread는 각각의 작업공간(context)를 가짐
+  - 공유 자원이 있는 경우 race condition이 발생
+  - critical section에 대한 동기화(synchronization)의 구현이 필요
+
+
+
+#### Thread 메서드
+
+- Thread 우선순위
+
+  - Thread.MIN_PRIORITY(=1) ~ Thread.MAX_PRIORITY(=10)
+
+    디폴트 우선 순위 : Thread.NORM_PRIORITY(=5)
+
+  - setPriority(int newPriority)
+
+    int getPriority()
+
+  - 우선순위가 높은 thread는 CPU를 배분 받을 확률이 높음
+
+
+
+- join() 메서드
+  - 다른 thread의 결과를 보고 진행해야 하는 일이 있는 경우 join() 메서드를 활용
+  - join() 메서드를 호출한 thread가 non-runnable 상태가 됨
+
+
+
+- interrupt() 메서드
+  - 다른 thread에 예외를 발생시키는 interrupt를 보냄
+  - thread가 join(), sleep(), wait() 메서드에 의해 블로킹 되었다면 interrupt에 의해 다시 runnable 상태가 될 수 있음
+
+
+
+- Thread 종료하기
+  - 데몬 등 무한 반복하는 thread가 종료될 수 있또록 run() 메서드 내의 while 문을 활용
+  - Thread.stop()은 사용하지 않음
+
+
+
 
 

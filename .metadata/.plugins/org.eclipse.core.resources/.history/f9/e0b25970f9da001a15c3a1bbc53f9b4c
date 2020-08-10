@@ -1,0 +1,17 @@
+package stream;
+
+public class FileCopy {
+
+	public static void main(String[] args) {
+
+		long milliseconds = 0;
+		
+		try(FileInputStream fis = new FileInputStream("a.zip")
+				FileOutputStream fos = new FileOutputStream("copy.zip")){
+			
+		} catch(IOException e) {
+			System.out.println(e);
+		}
+	}
+
+}

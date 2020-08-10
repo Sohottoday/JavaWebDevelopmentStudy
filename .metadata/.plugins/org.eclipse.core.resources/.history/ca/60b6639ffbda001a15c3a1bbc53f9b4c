@@ -1,0 +1,20 @@
+package stream;
+
+import java.io.DataOutputStream;
+import java.io.FileOutputStream;
+
+public class DataStreamTest {
+
+	public static void main(String[] args) {
+
+		try(FileOutputStream fos = new FileOutputStream("data.txt");
+				DataOutputStream dos = new DataOutputStream(fos)
+				){
+			dos.writeByte(100);
+			dos.writeChar('A');
+			dos.writeUTF("æ»≥Á«œººø‰");
+			
+		}
+	}
+
+}

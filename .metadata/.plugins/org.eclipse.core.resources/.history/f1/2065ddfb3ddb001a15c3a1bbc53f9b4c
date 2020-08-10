@@ -1,0 +1,6 @@
+package stream.coffee;
+
+public class Mocha extends Coffee{
+
+	
+}

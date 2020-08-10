@@ -1,0 +1,16 @@
+package stream;
+
+import java.io.FileNotFoundException;
+import java.io.RandomAccessFile;
+
+public class RandomAccessFileTest {
+
+	public static void main(String[] args) throws FileNotFoundException {
+
+		RandomAccessFile rf = new RandomAccessFile("random.txt", "rw");
+		rf.writeInt(100);
+		
+		
+	}
+
+}

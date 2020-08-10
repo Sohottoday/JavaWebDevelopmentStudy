@@ -308,7 +308,7 @@ for(변수 : 배열){
 
 
 
-##### 상속은 어네 사용할까?
+##### 상속은 언제 사용할까?
 
 - IS-A 관계(is a relationship : inheritance)
 
@@ -433,7 +433,7 @@ for(변수 : 배열){
 - 추상 클래스 구현
 
 ``` java
-public abstrac class Computer{
+public abstract class Computer{
     public abstract void display();
     public abstract void typing();
     ...
