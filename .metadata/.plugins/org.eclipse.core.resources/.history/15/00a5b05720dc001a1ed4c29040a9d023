@@ -1,0 +1,17 @@
+package thread;
+
+import java.util.ArrayList;
+
+class FaseLibrary{
+	
+	public ArrayList<tring> books = new ArrayList<String>();
+}
+
+
+public class LibraryMain {
+
+	public static void main(String[] args) {
+
+	}
+
+}
