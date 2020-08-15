@@ -67,7 +67,10 @@
 - Resource 분류
   - Collection : 여러개(Read(List), Create)
   - Member : 그 안에 속한 개별적인 리소스 (Read(Detail), Update, Delete)
-- 
+
+
+
+
 
 
 
